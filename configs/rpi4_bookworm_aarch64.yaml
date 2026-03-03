@@ -1,0 +1,37 @@
+# Raspberry Pi 4 Configuration (Bookworm, ARM64)
+# Hardware and software configuration for RPi4 setup
+
+hardware:
+  platform: "raspberry_pi_4"
+  architecture: "aarch64"
+  os: "raspberry_pi_os_bookworm"
+  
+camera:
+  width: 640
+  height: 480
+  fps: 30
+  format: "RGB888"
+  
+perception:
+  detector:
+    model_path: "demos/rpi_yolov5_tflite/models/yolov5s-int8.tflite"
+    input_size: [640, 640]
+    confidence_threshold: 0.25
+    nms_threshold: 0.45
+  
+navigation:
+  planner:
+    type: "astar"
+    resolution: 0.05  # meters per pixel
+    inflation_radius: 0.2  # meters
+  
+mapping:
+  slam:
+    type: "lidar"  # or "visual"
+    map_resolution: 0.05  # meters per pixel
+    map_size: [100, 100]  # meters
+
+performance:
+  use_gpu: false  # RPi4 doesn't have GPU acceleration for ML
+  num_threads: 4
+  enable_optimizations: true

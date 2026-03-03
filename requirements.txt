@@ -1,0 +1,28 @@
+# Core dependencies for Quadruped Semantic Navigation
+# Install with: pip install -r requirements.txt
+
+# Computer Vision
+numpy>=1.24.0
+opencv-python>=4.8.0
+Pillow>=10.0.0
+
+# Deep Learning (Raspberry Pi optimized)
+tensorflow-lite-runtime>=2.13.0
+
+# Optional: Full TensorFlow (for development/training, typically on dev machine)
+# tensorflow>=2.13.0
+
+# Optional: PyTorch (for training, typically on dev machine)
+# torch>=2.0.0
+# torchvision>=0.15.0
+
+# Configuration and utilities
+pyyaml>=6.0
+
+# Optional: ROS 2 dependencies (if using TurtleBot3)
+# rclpy>=3.3.0
+# sensor-msgs>=4.2.0
+# geometry-msgs>=4.2.0
+
+# Optional: Unitree SDK (if using Go2)
+# unitree-sdk>=1.0.0

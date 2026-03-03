@@ -205,3 +205,32 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Project-specific ignores
+# Upstream repositories (cloned by scripts, not committed)
+upstream/picamera2/
+upstream/*/
+
+# Model files (may be large and have license restrictions)
+demos/*/models/*.tflite
+demos/*/models/*.onnx
+demos/*/models/*.pt
+demos/*/models/*.pth
+demos/*/models/*.weights
+
+# Logs and temporary files
+logs/
+*.log
+tmp/
+temp/
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
