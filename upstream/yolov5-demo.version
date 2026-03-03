@@ -1,9 +1,0 @@
-# YOLOv5 Demo Reference Version
-# This file tracks the reference implementation version (if applicable)
-
-# Repository: https://github.com/ultralytics/yolov5
-# Note: We use TensorFlow Lite models, not the full PyTorch implementation
-# This is mainly for reference purposes
-
-# TODO: Update if you reference specific YOLOv5 implementation
-# Commit hash or tag:
