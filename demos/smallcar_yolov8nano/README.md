@@ -2,6 +2,10 @@
 
 This demo provides real-time object detection using YOLOv8nano on Raspberry Pi 4 small car platform. The demo streams detection results via MJPEG HTTP server, avoiding GUI dependencies and VNC latency issues.
 
+## Demo Video
+
+📹 [Watch Demo Video](./video/2026.3.2.-YOLOV8%20Nano%20in%20small%20car-demo.mp4)
+
 ## What This Demo Does
 
 **Purpose:**
