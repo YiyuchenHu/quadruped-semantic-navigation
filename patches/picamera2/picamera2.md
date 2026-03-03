@@ -1,5 +1,9 @@
 # Picamera2 YOLOv5 TFLite Patch Documentation
 
+## Demo Video
+
+📹 [Watch Demo Video](./video/2026.3.2-YOLOv5%20TFLite%20in%20small%20car-demo.mp4)
+
 ## Section 1 — Overview
 
 This patch enables successful execution of YOLOv5 TensorFlow Lite object detection with label overlays on Raspberry Pi 4 Model B (4GB) running Raspberry Pi OS Bullseye using Picamera2. The upstream example (`picamera2/examples/tensorflow/yolo_v5_real_time_with_labels.py`) contains several compatibility issues when running on Bullseye with VNC and specific hardware configurations.
