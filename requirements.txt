@@ -1,5 +1,9 @@
+# Requirements File
+# 
+# This file lists all Python package dependencies for the quadruped semantic navigation project.
+# Install dependencies with: pip install -r requirements.txt
+#
 # Core dependencies for Quadruped Semantic Navigation
-# Install with: pip install -r requirements.txt
 
 # Computer Vision
 numpy>=1.24.0
