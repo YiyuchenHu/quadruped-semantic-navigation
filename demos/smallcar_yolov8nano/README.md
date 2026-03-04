@@ -4,7 +4,7 @@ Real-time object detection using YOLOv8nano on Raspberry Pi 4 small car platform
 
 ## Demo Video
 
-Demo video (Google Drive): <PASTE_LINK_HERE>
+[Demo video](https://drive.google.com/file/d/1nYlZcVOUjUOCVYoeJ4OVAHvZrnRQvLq0/view?usp=sharing) Google Drive
 
 ## Quick Start
 
