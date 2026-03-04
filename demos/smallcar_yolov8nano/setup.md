@@ -62,7 +62,7 @@ python3 -c "import picamera2; import cv2; import numpy; print('System packages O
 ### Step 2: Create Virtual Environment
 
 ```bash
-# Navigate to demo directory
+# From repo root, navigate to demo directory
 cd demos/smallcar_yolov8nano
 
 # Create venv with system site packages (so picamera2 is accessible)
@@ -114,7 +114,8 @@ Ultralytics pip install upgraded NumPy to 2.x, breaking compiled extensions.
 
 **Fix:**
 ```bash
-# Activate venv
+# From repo root
+cd demos/smallcar_yolov8nano
 source venv/bin/activate
 
 # Uninstall problematic packages
@@ -221,6 +222,9 @@ ModuleNotFoundError: No module named 'picamera2'
 
 **Fix:**
 ```bash
+# From repo root
+cd demos/smallcar_yolov8nano
+
 # Ensure venv was created with --system-site-packages
 deactivate  # if venv is active
 rm -rf venv
@@ -236,7 +240,8 @@ python3 -c "from picamera2 import Picamera2; print('OK')"
 After completing setup, run the smoke test:
 
 ```bash
-# Activate venv
+# From repo root
+cd demos/smallcar_yolov8nano
 source venv/bin/activate
 
 # Run smoke test (no GUI, prints detection counts)
