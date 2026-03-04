@@ -17,6 +17,16 @@ python3 yolov8_mjpeg_server.py
 
 👉 [Installation guide](./setup.md)
 
+## Smoke Test (No GUI)
+
+```bash
+cd demos/smallcar_yolov8nano
+source venv/bin/activate
+python3 yolov8_smoketest_no_gui.py
+```
+
+Expected output: `frame 0: detections=3`, `frame 1: detections=2`, etc.
+
 ## MJPEG Streaming (Remote View)
 
 YOLOv8nano runs locally on the Raspberry Pi, but detection results can be viewed remotely from another computer's browser via MJPEG streaming.
@@ -69,15 +79,7 @@ The browser will display a real-time MJPEG stream showing object detection resul
 - Port 8080 must be accessible (check firewall if connection fails)
 - The detection server must be running on the Pi
 
-## Smoke Test (No GUI)
 
-```bash
-cd demos/smallcar_yolov8nano
-source venv/bin/activate
-python3 yolov8_smoketest_no_gui.py
-```
-
-Expected output: `frame 0: detections=3`, `frame 1: detections=2`, etc.
 
 ## Expected Performance
 

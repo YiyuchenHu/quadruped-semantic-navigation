@@ -35,7 +35,7 @@ Version: 2.1.0
 ```
 
 **Key Components:**
-- Hardware: Raspberry Pi 4 Model B (4GB)
+- Hardware: Raspberry Pi 4 Model B (2GB)
 - OS: Raspberry Pi OS Bullseye (64-bit, aarch64)
 - Picamera2: 0.3.12-2 (APT package)
 - OpenCV: 4.5.1 (APT package, NOT pip)
