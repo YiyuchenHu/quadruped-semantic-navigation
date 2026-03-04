@@ -15,9 +15,59 @@ source venv/bin/activate
 python3 yolov8_mjpeg_server.py
 ```
 
-Open browser: `http://<pi-ip>:8080/` (find IP with `hostname -I` on Pi)
-
 👉 [Installation guide](./setup.md)
+
+## MJPEG Streaming (Remote View)
+
+YOLOv8nano runs locally on the Raspberry Pi, but detection results can be viewed remotely from another computer's browser via MJPEG streaming.
+
+### Step 1 — Start the Detection Server on Raspberry Pi
+
+```bash
+cd demos/smallcar_yolov8nano
+source venv/bin/activate
+python3 yolov8_mjpeg_server.py
+```
+
+Expected output:
+```
+[INFO] Server running: http://0.0.0.0:8080/
+[INFO] Open from your laptop: http://<pi-ip>:8080/
+[INFO] Ctrl+C to stop.
+```
+
+### Step 2 — Find the Raspberry Pi IP Address
+
+On the Raspberry Pi, run:
+
+```bash
+hostname -I
+```
+
+This returns the Pi's IP address, for example:
+```
+192.168.1.23
+```
+
+### Step 3 — Open the Stream from Another Computer
+
+Open a web browser on your laptop/desktop and navigate to:
+
+```
+http://<pi-ip>:8080/
+```
+
+Example:
+```
+http://192.168.1.23:8080/
+```
+
+The browser will display a real-time MJPEG stream showing object detection results with bounding boxes and labels.
+
+**Requirements:**
+- Raspberry Pi and laptop must be on the same network
+- Port 8080 must be accessible (check firewall if connection fails)
+- The detection server must be running on the Pi
 
 ## Smoke Test (No GUI)
 
