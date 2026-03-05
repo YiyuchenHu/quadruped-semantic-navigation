@@ -9,12 +9,8 @@ Vision-based indoor navigation and obstacle avoidance for quadruped robot (RPi +
 git clone <repository-url>
 cd quadruped-semantic-navigation
 
-# One-click setup
-chmod +x scripts/setup_rpi.sh
-./scripts/setup_rpi.sh
-
-# Run YOLOv5 demo
-./scripts/run_yolo_demo.sh
+# Setup and run demos
+# See individual demo directories for setup instructions
 ```
 
 **Prerequisites**: Raspberry Pi 4 (8GB+) with Pi Camera module, Raspberry Pi OS Bookworm
@@ -25,7 +21,7 @@ chmod +x scripts/setup_rpi.sh
 ├── docs/          # Documentation (overview, quickstart, hardware, etc.)
 ├── upstream/      # Upstream version tracking (no source code)
 ├── patches/       # Replayable patches for upstream projects
-├── scripts/       # One-click setup and execution scripts
+├── dev/           # Algorithm validation and development code
 ├── demos/         # Runnable demo applications
 ├── src/           # Core algorithm implementations
 └── configs/       # Configuration files (RPi4, TB3, etc.)

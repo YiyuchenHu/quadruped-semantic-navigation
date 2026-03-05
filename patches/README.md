@@ -17,7 +17,7 @@ Patch files follow naming convention: `0001-description.patch`, `0002-descriptio
 
 ## Usage
 
-Patches are automatically applied by `scripts/apply_patches_picamera2.sh`. See `docs/patches/` for detailed documentation.
+Patches can be applied manually or via setup scripts. See `docs/patches/` for detailed documentation.
 
 ## Creating Patches
 
