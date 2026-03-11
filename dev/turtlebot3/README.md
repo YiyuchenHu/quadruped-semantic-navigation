@@ -23,3 +23,5 @@ Place TurtleBot3-related code files here as they are developed.
 ## Usage
 
 Refer to individual files for specific usage instructions.
+
+**Phase 1 baseline (autonomous exploration):** See [docs/phase1_baseline.md](docs/phase1_baseline.md) for the validated Gazebo + slam_toolbox + Nav2 + explore_lite setup, run order, and verification.
