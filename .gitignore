@@ -234,3 +234,8 @@ temp/
 # OS files
 .DS_Store
 Thumbs.db
+
+# ROS2 workspace build artifacts (dev/turtlebot3)
+dev/turtlebot3/ros2_ws/install/
+dev/turtlebot3/ros2_ws/log/
+dev/turtlebot3/ros2_ws/.build_used_system_python

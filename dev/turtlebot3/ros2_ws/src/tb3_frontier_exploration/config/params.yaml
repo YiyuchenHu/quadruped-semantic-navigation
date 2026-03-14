@@ -1,0 +1,32 @@
+# tb3_frontier_exploration parameters
+
+frontier_detection_node:
+  ros__parameters:
+    map_topic: "/map"
+    costmap_topic: "/global_costmap/costmap"
+    frontiers_topic: "/frontiers"
+    frontiers_markers_topic: "/frontiers_markers"
+    frame_id: "map"
+    min_cluster_size: 5
+    cost_threshold: 128
+    use_costmap_filter: true
+    publish_raw_markers: true
+    publish_rejected_markers: true
+    # Set true to print step-by-step frontier debug at INFO (else only at DEBUG)
+    verbose_frontier_logging: false
+
+goal_assignment_node:
+  ros__parameters:
+    frontiers_topic: "/frontiers"
+    odom_topic: "/odometry/filtered"
+    navigate_to_pose_action: "navigate_to_pose"
+    frame_id: "map"
+    robot_base_frame: "base_link"
+    goal_timeout: 60.0
+    rate: 1.0
+    # Ignore frontier centroids closer than this to the robot (m)
+    min_frontier_distance: 0.5
+    # Do not select a goal within this distance of the last failed goal (m)
+    failed_goal_avoidance_radius: 1.0
+    # Throttle "exploration complete" log to this interval (s)
+    exploration_complete_log_interval: 5.0
