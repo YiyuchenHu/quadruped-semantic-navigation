@@ -11,21 +11,45 @@ def generate_launch_description():
     config = os.path.join(pkg_share, "config", "params.yaml")
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
+    map_topic = LaunchConfiguration("map_topic", default="/map")
+    costmap_topic = LaunchConfiguration("costmap_topic", default="/global_costmap/costmap")
+    odom_topic = LaunchConfiguration("odom_topic", default="/odometry/filtered")
 
     return LaunchDescription([
-        DeclareLaunchArgument("use_sim_time", default_value="true", description="Use simulation time"),
+        DeclareLaunchArgument("use_sim_time", default_value="true",
+                             description="Use simulation time"),
+        DeclareLaunchArgument("map_topic", default_value="/map",
+                             description="OccupancyGrid topic for the map"),
+        DeclareLaunchArgument("costmap_topic", default_value="/global_costmap/costmap",
+                             description="Costmap topic for frontier cost sampling"),
+        DeclareLaunchArgument("odom_topic", default_value="/odometry/filtered",
+                             description="Odometry topic for goal assignment"),
+
         Node(
             package="tb3_frontier_exploration",
             executable="frontier_detection_node",
             name="frontier_detection_node",
-            parameters=[config, {"use_sim_time": use_sim_time}],
+            parameters=[
+                config,
+                {"use_sim_time": use_sim_time},
+                {"frontier_detection_node": {"ros__parameters": {
+                    "map_topic": map_topic,
+                    "costmap_topic": costmap_topic,
+                }}},
+            ],
             output="screen",
         ),
         Node(
             package="tb3_frontier_exploration",
             executable="goal_assignment_node",
             name="goal_assignment_node",
-            parameters=[config, {"use_sim_time": use_sim_time}],
+            parameters=[
+                config,
+                {"use_sim_time": use_sim_time},
+                {"goal_assignment_node": {"ros__parameters": {
+                    "odom_topic": odom_topic,
+                }}},
+            ],
             output="screen",
         ),
     ])

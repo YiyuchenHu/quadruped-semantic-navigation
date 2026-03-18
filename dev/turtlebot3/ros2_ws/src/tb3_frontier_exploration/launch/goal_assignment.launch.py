@@ -11,14 +11,25 @@ def generate_launch_description():
     config = os.path.join(pkg_share, "config", "params.yaml")
 
     use_sim_time = LaunchConfiguration("use_sim_time", default="true")
+    odom_topic = LaunchConfiguration("odom_topic", default="/odometry/filtered")
 
     return LaunchDescription([
-        DeclareLaunchArgument("use_sim_time", default_value="true", description="Use simulation time"),
+        DeclareLaunchArgument("use_sim_time", default_value="true",
+                             description="Use simulation time"),
+        DeclareLaunchArgument("odom_topic", default_value="/odometry/filtered",
+                             description="Odometry topic for robot pose (e.g. from robot_localization)"),
+
         Node(
             package="tb3_frontier_exploration",
             executable="goal_assignment_node",
             name="goal_assignment_node",
-            parameters=[config, {"use_sim_time": use_sim_time}],
+            parameters=[
+                config,
+                {"use_sim_time": use_sim_time},
+                {"goal_assignment_node": {"ros__parameters": {
+                    "odom_topic": odom_topic,
+                }}},
+            ],
             output="screen",
         ),
     ])
