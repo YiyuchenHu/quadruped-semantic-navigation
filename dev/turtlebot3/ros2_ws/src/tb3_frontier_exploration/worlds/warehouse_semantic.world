@@ -1,0 +1,147 @@
+<?xml version="1.0" ?>
+<!--
+  warehouse_semantic.world — minimal Gazebo Classic warehouse for TurtleBot3 + SLAM + Nav2 + fake semantic nav.
+
+  Interior (open floor): approximately 6 m (X) × 10 m (Y), centered at origin.
+  Semantic goals in map frame (see semantic_goals.yaml) assume map origin ≈ robot start at world (0, 0).
+
+  Coordinate layout (top view, +X right, +Y up):
+    Y = +5  ------ north wall ------
+            |                       |
+    X=-3    |   open interior       |    X=+3
+            |                       |
+    Y = -5  ------ south wall ------
+
+  Safe check: goals should stay inside |x|≤2.8, |y|≤4.8 with margin from walls.
+-->
+<sdf version="1.6">
+  <world name="warehouse_semantic">
+
+    <!-- Standard lighting -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- Infinite ground (collision + visual); warehouse walls provide boundaries -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Physics: stable real-time factor for simulation -->
+    <physics type="ode">
+      <real_time_factor>1.0</real_time_factor>
+      <max_step_size>0.001</max_step_size>
+    </physics>
+
+    <!-- Scene ambient (subtle, works with sun) -->
+    <scene>
+      <ambient>0.4 0.4 0.4 1</ambient>
+      <background>0.7 0.75 0.8 1</background>
+    </scene>
+
+    <!--
+      Walls: static boxes, thickness 0.2 m, height 2.5 m (good for lidar / collision).
+      Inner clearance: X in [-3, 3], Y in [-5, 5] (6 m × 10 m).
+    -->
+    <model name="wall_east">
+      <static>true</static>
+      <pose>3.1 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 10.4 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 10.4 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.55 0.58 1</ambient>
+            <diffuse>0.65 0.65 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_west">
+      <static>true</static>
+      <pose>-3.1 0 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 10.4 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 10.4 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.55 0.55 0.58 1</ambient>
+            <diffuse>0.65 0.65 0.7 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_north">
+      <static>true</static>
+      <pose>0 5.1 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6.4 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6.4 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.52 0.55 1</ambient>
+            <diffuse>0.6 0.62 0.65 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <model name="wall_south">
+      <static>true</static>
+      <pose>0 -5.1 1.25 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6.4 0.2 2.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6.4 0.2 2.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.52 0.55 1</ambient>
+            <diffuse>0.6 0.62 0.65 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>

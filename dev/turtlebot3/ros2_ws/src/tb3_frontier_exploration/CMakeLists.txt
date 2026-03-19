@@ -35,6 +35,7 @@ install(TARGETS
 install(PROGRAMS
   scripts/fake_semantic_navigation_node.py
   scripts/command_parser.py
+  scripts/map_gating.py
   DESTINATION lib/${PROJECT_NAME})
 
 install(DIRECTORY

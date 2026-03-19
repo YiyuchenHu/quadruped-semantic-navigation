@@ -20,6 +20,6 @@ semantic_goals:
     yaw: 1.57
 
   fridge:
-    x: 3.0
+    x: 2.5
     y: -2.0
     yaw: 3.14
