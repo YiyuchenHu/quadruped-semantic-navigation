@@ -1,0 +1,25 @@
+# Semantic object database for fake semantic navigation (no YOLO/LLM).
+# Each object maps to a predefined SAFE APPROACH POSE in the map frame, not the
+# object center. See config/SEMANTIC_GOALS_README.md for format and rationale.
+#
+# Load in Python:  import yaml; data = yaml.safe_load(open(path)); goals = data["semantic_goals"]
+# Load in C++:     use yaml-cpp or rclcpp params (export this file or copy into node params).
+
+frame_id: "map"
+
+# Object label (key) -> pose. yaw in radians.
+semantic_goals:
+  table:
+    x: 2.0
+    y: 1.0
+    yaw: 0.0
+
+  chair:
+    x: -1.5
+    y: 0.5
+    yaw: 1.57
+
+  fridge:
+    x: 3.0
+    y: -2.0
+    yaw: 3.14

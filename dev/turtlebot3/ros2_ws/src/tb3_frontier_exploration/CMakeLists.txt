@@ -32,9 +32,15 @@ install(TARGETS
   goal_assignment_node
   DESTINATION lib/${PROJECT_NAME})
 
+install(PROGRAMS
+  scripts/fake_semantic_navigation_node.py
+  scripts/command_parser.py
+  DESTINATION lib/${PROJECT_NAME})
+
 install(DIRECTORY
   config
   launch
+  worlds
   DESTINATION share/${PROJECT_NAME})
 
 if(BUILD_TESTING)
